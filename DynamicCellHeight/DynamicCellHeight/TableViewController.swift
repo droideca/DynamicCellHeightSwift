@@ -12,11 +12,14 @@ class TableViewController: UITableViewController, ConnectionProtocol {
 
 	var appReviews = AppReviews()
 	var connectionManager = ConnectionManager()
+	var customCell: CustomCell!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		connectionManager.delegate = self
 		connectionManager.retrieveData(Constants.Url.AppReview)
+		tableView.estimatedRowHeight=300
+	
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -47,15 +50,42 @@ class TableViewController: UITableViewController, ConnectionProtocol {
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath:indexPath) as! CustomCell
-		let review = appReviews.reviews[indexPath.row]
-		cell.titleLabel.text = "\(indexPath.row). " + review.title
-		cell.contentLabel.text = review.content
+		configureCell(cell, indexPath: indexPath)
+		println("\(indexPath.row). " + appReviews.reviews[indexPath.row].title + " \t " + appReviews.reviews[indexPath.row].content )
 		return cell
 	}
 	
 	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		return 70
+		if Constants.Devices.iOS8 {
+			return UITableViewAutomaticDimension
+		} else {
+			if customCell == nil {
+				customCell = tableView.dequeueReusableCellWithIdentifier("CustomCell") as! CustomCell
+			}
+			configureCell(customCell, indexPath: indexPath)
+			return calculateHeightForConfiguredSizingCell(customCell)
+		}
+
 	}
+	
+	// MARK: - Tableview configuration cell
+	
+	private func configureCell(cell: CustomCell, indexPath: NSIndexPath){
+		let review = appReviews.reviews[indexPath.row]
+		cell.titleLabel.text = "\(indexPath.row). " + review.title
+		cell.contentLabel.text = review.content
+	}
+	
+	private func calculateHeightForConfiguredSizingCell(sizingCell: CustomCell) -> CGFloat {
+		sizingCell.bounds = CGRectMake(0.0, 0.0, CGRectGetWidth(tableView.frame), CGRectGetHeight(sizingCell.bounds));
+		sizingCell.setNeedsLayout()
+		sizingCell.layoutIfNeeded()
+		println(sizingCell.titleLabel!.bounds.height)
+		println(sizingCell.contentLabel!.bounds.height)
+		let size = sizingCell.contentView.systemLayoutSizeFittingSize(UILayoutFittingExpandedSize)
+		return size.height + 1.0;
+	}
+
 
 	
 

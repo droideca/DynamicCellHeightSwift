@@ -15,19 +15,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="70" id="7bT-pb-jpp" customClass="CustomCell" customModule="DynamicCellHeight" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="70" id="7bT-pb-jpp" customClass="CustomCell" customModule="DynamicCellHeight" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7bT-pb-jpp" id="8pN-zk-Gka">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-PZ-GzN">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QP2-PZ-GzN" customClass="DynamicLabel" customModule="DynamicCellHeight" customModuleProvider="target">
                                             <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfk-PT-qXT">
-                                            <rect key="frame" x="8" y="37" width="584" height="15"/>
+                                        <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfk-PT-qXT" customClass="DynamicLabel" customModule="DynamicCellHeight" customModuleProvider="target">
+                                            <rect key="frame" x="8" y="37" width="584" height="16"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="glA-LI-Pnl"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.30980392159999998" green="0.30980392159999998" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -35,11 +40,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="dfk-PT-qXT" firstAttribute="top" secondItem="QP2-PZ-GzN" secondAttribute="bottom" constant="8" id="6cn-4o-9e5"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="QP2-PZ-GzN" secondAttribute="trailing" id="FcX-Qr-FW1"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dfk-PT-qXT" secondAttribute="trailing" id="TOu-Db-5y9"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="QP2-PZ-GzN" secondAttribute="trailing" priority="999" id="FcX-Qr-FW1"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dfk-PT-qXT" secondAttribute="trailing" priority="999" id="TOu-Db-5y9"/>
                                         <constraint firstItem="QP2-PZ-GzN" firstAttribute="top" secondItem="8pN-zk-Gka" secondAttribute="topMargin" id="YMV-TB-IqC"/>
                                         <constraint firstItem="dfk-PT-qXT" firstAttribute="leading" secondItem="8pN-zk-Gka" secondAttribute="leadingMargin" id="ZWs-1E-Fis"/>
                                         <constraint firstItem="QP2-PZ-GzN" firstAttribute="leading" secondItem="8pN-zk-Gka" secondAttribute="leadingMargin" id="luw-1C-uW1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dfk-PT-qXT" secondAttribute="bottom" priority="999" constant="8" id="z3b-L9-iNM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

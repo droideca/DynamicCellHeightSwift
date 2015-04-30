@@ -20,6 +20,7 @@
 		A50EEF391AF29C640059AE1E /* UserReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EEF381AF29C640059AE1E /* UserReviews.swift */; };
 		A50EEF3B1AF29C720059AE1E /* AppReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EEF3A1AF29C720059AE1E /* AppReviews.swift */; };
 		A50EEF431AF29F200059AE1E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EEF421AF29F200059AE1E /* CustomCell.swift */; };
+		A50EEF451AF2A9840059AE1E /* DynamicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EEF441AF2A9840059AE1E /* DynamicLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		A50EEF381AF29C640059AE1E /* UserReviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserReviews.swift; sourceTree = "<group>"; };
 		A50EEF3A1AF29C720059AE1E /* AppReviews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppReviews.swift; path = "../../../discovery-app-ios/DiscoveryApp/DiscoveryApp/AppReviews.swift"; sourceTree = "<group>"; };
 		A50EEF421AF29F200059AE1E /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		A50EEF441AF2A9840059AE1E /* DynamicLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				A50EEF0D1AF299020059AE1E /* Main.storyboard */,
 				A50EEF121AF299020059AE1E /* LaunchScreen.xib */,
 				A50EEF421AF29F200059AE1E /* CustomCell.swift */,
+				A50EEF441AF2A9840059AE1E /* DynamicLabel.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				A50EEF2F1AF29BB10059AE1E /* Alamofire.swift in Sources */,
 				A50EEF431AF29F200059AE1E /* CustomCell.swift in Sources */,
 				A50EEF0C1AF299020059AE1E /* TableViewController.swift in Sources */,
+				A50EEF451AF2A9840059AE1E /* DynamicLabel.swift in Sources */,
 				A50EEF321AF29BB10059AE1E /* SwiftyJSON.swift in Sources */,
 				A50EEF391AF29C640059AE1E /* UserReviews.swift in Sources */,
 				A50EEF0A1AF299020059AE1E /* AppDelegate.swift in Sources */,
