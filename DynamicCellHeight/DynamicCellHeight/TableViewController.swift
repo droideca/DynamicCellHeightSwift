@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController, ConnectionProtocol {
 
-	var appReview = AppReviews()
+	var appReviews = AppReviews()
 	var connectionManager = ConnectionManager()
 	
 	override func viewDidLoad() {
@@ -23,15 +23,43 @@ class TableViewController: UITableViewController, ConnectionProtocol {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	
+	// MARK: - ConnectionProtocol
 
 	func didRecieveError(error: NSError!) {
 		println(error)
 	}
 	
 	func didRecieveResults(data: JSON!) {
-		appReview = AppReviews(json: data)
+		appReviews = AppReviews(json: data)
+		tableView.reloadData()
 	}
 	
+	// MARK: - TableView DataSource
+	
+	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+		return 1
+	}
+	
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return appReviews.reviews.count
+	}
+	
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCellWithIdentifier("CustomCell", forIndexPath:indexPath) as! CustomCell
+		let review = appReviews.reviews[indexPath.row]
+		cell.titleLabel.text = "\(indexPath.row). " + review.title
+		cell.contentLabel.text = review.content
+		return cell
+	}
+	
+	override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+		return 70
+	}
+
+	
+
+
 	
 
 }
